@@ -1,0 +1,44 @@
+﻿@model Loyalty_page.AuthorizeNET.Customer
+@{
+    ViewBag.Title = "Get amount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("GetProfileByName", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Enter first name" })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Enter last name" })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter Email" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+
+        <div class="bs-component">
+            @*<button type="submit" class="btn btn-success btn-lg btn-block">Sign Up</button>*@
+            <button type="submit" class="btn btn-success">Get info</button>
+
+            <button type="reset" class="btn btn-danger">Cancel</button>
+        </div>
+
+    </fieldset>
+}
+
+
+
+
+
+
